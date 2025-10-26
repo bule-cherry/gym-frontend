@@ -9,6 +9,7 @@
                     <Header></Header>
                 </el-header>
                 <el-main class="main">
+                    <Tabs style="padding: 0px 20px"></Tabs>
                     <router-view></router-view>
                 </el-main>
             </el-container>
@@ -18,6 +19,7 @@
 <script setup lang="ts">
 import Header from "@/layout/header/Header.vue";
 import MenuBar from "@/layout/menu/MenuBar.vue";
+import Tabs from '@/layout/tabs/Tabs.vue';
 </script>
 <style lang="scss">
 .header {
@@ -42,10 +44,6 @@ import MenuBar from "@/layout/menu/MenuBar.vue";
 
     .header {
         background-color: #009688;
-    }
-
-    .main {
-        background-color: darkgoldenrod;
     }
 }
 </style>
