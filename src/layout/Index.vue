@@ -20,6 +20,11 @@ import Header from "@/layout/header/Header.vue";
 import MenuBar from "@/layout/menu/MenuBar.vue";
 </script>
 <style lang="scss">
+.header {
+ display: flex;
+ align-items: center;
+ background-color: #009688;
+ }
 .full-screen {
     height: 100vh;
     /* 视口高度 */

@@ -1,5 +1,5 @@
 <template>
-    <menu-logo></menu-logo>
+    <menu-logo :isCollapsed="isCollapse"></menu-logo>
     <el-menu :default-active="activeIndex" 
     class="el-menu-vertical-demo" 
     :collapse="isCollapse" 
@@ -15,12 +15,17 @@ import { computed, ref } from 'vue';
 import MenuItem from "@/layout/menu/MenuItem.vue";
 import MenuLogo from '@/layout/menu/MenuLogo.vue'
 import { useRoute } from 'vue-router';
+import { collapseStore } from "@/store/collapse/index";
 //获取激活的菜单
- const route = useRoute();
+const route = useRoute();
 const activeIndex = computed(()=>{
  const {path} = route;
  return path;
- })
+})
+const colstore = collapseStore();
+const isCollapse = computed(() => {
+ return colstore.getCollapse;
+});
 // 菜单数据结构
 const menuList = [
     {
@@ -108,8 +113,6 @@ const menuList = [
         ],
     },
 ]
-
-const isCollapse = ref(false);
 </script>
 
 <style scoped lang="scss">
