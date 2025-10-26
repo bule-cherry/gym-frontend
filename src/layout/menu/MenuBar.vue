@@ -1,15 +1,26 @@
 <template>
     <menu-logo></menu-logo>
-    <el-menu default-active="2" class="el-menu-vertical-demo" :collapse="isCollapse" unique-opened
-        background-color="#304156">
+    <el-menu :default-active="activeIndex" 
+    class="el-menu-vertical-demo" 
+    :collapse="isCollapse" 
+    unique-opened
+    background-color="#304156"
+    router >
         <menu-item :menuList="menuList"></menu-item>
     </el-menu>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import MenuItem from "@/layout/menu/MenuItem.vue";
 import MenuLogo from '@/layout/menu/MenuLogo.vue'
+import { useRoute } from 'vue-router';
+//获取激活的菜单
+ const route = useRoute();
+const activeIndex = computed(()=>{
+ const {path} = route;
+ return path;
+ })
 // 菜单数据结构
 const menuList = [
     {
