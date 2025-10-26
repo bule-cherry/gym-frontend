@@ -1,4 +1,5 @@
 <template>
+    <menu-logo></menu-logo>
     <el-menu default-active="2" class="el-menu-vertical-demo" :collapse="isCollapse" unique-opened
         background-color="#304156">
         <menu-item :menuList="menuList"></menu-item>
@@ -8,6 +9,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import MenuItem from "@/layout/menu/MenuItem.vue";
+import MenuLogo from '@/layout/menu/MenuLogo.vue'
 // 菜单数据结构
 const menuList = [
     {
@@ -101,7 +103,7 @@ const isCollapse = ref(false);
 
 <style scoped lang="scss">
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 230px;
+    width: auto;
     min-height: 400px;
 }
 
