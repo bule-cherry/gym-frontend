@@ -6,6 +6,6 @@
   <router-view></router-view>
 </template>
 
-<style scoped>
+<style lang="scss">
 
 </style>
