@@ -1,8 +1,8 @@
-import {type ListParm} from '@/api/RoleModel'
+import {type ListParm} from '@/api/role/RoleModel'
 import { List } from '@element-plus/icons-vue'
  import { reactive } from 'vue'
  export default function useTable(){
-    const ListParam = reactive<ListParm>({
+    const listParam = reactive<ListParm>({
         roleName:'',
         currentPage:1,
         pageSize:10,
@@ -19,7 +19,7 @@ import { List } from '@element-plus/icons-vue'
 
     }
     return {
-        ListParam,
+        listParam,
         searchBtn,
         resetBtn
     }
