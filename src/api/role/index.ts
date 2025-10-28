@@ -5,6 +5,14 @@ export const addApi = (param: AddRoleModel) => {
     return http.post("/api/role", param)
 }
 //查询
-export const getListApi = (param: ListParam) =>{
-    return http.get("api/role/list",param)
+export const getListApi = (param: ListParam) => {
+    return http.get("api/role/list", param)
+}
+//删除
+export const deleteApi = (roleId: string) => {
+    return http.delete(`/api/role/${roleId}`)
+}
+//编辑
+export const editApi = (parm: AddRoleModel) => {
+    return http.put("/api/role", parm)
 }

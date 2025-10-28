@@ -1,23 +1,35 @@
-import {type AddRoleModel} from '@/api/role/RoleModel'
- import { reactive,ref } from 'vue'
-
-export default function useRole(){
-    //RoleAdd.vue 暴露出来的, 该对象有一个方法 show，无参数、无返回值 → 作用是控制弹窗大小和显示的属性
-    //新增弹框的ref属性(子组件将方法暴露出去，父组件就可以调用子组件的方法)
-    const addRef = ref<{ show: () => void }>()
-
+import { type AddRoleModel } from '@/api/role/RoleModel'
+import { EditType } from '@/type/BaseEnum'
+import { type FuncList } from '@/type/BaseType'
+import { ref } from 'vue'
+import { deleteApi } from '@/api/role'
+import { ElMessage } from 'element-plus'
+import useInstance from '@/hooks/useInstance'
+export default function useRole(getList: FuncList) {
+    const { global } = useInstance()
+    //新增、编辑组件ref属性
+    const addRef = ref<{
+        show: (type: string, row?: AddRoleModel)
+            => void
+    }>()
     //新增
-    const addBtn = () =>{
-        //?. 可选链操作符：如果前面是 null 或 undefined，就不执行后面的 .show()，避免报错
-        addRef.value?.show()
+    const addBtn = () => {
+        addRef.value?.show(EditType.ADD)
     }
     //编辑
-    const editBtn = () =>{
-
+    const editBtn = (row: AddRoleModel) => {
+        addRef.value?.show(EditType.EDIT, row);
     }
     //删除
-    const deleteBtn = () =>{
-
+    const deleteBtn = async (row: AddRoleModel) => {
+        let confirm = await global.$myconfirm('确定删除该数据吗?')
+        if (confirm) {
+            let res = await deleteApi(row.roleId)
+            if (res && res.code == 200) {
+                ElMessage.success(res.msg)
+                getList()
+            }
+        }
     }
     return {
         addBtn,
