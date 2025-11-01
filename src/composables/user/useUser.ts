@@ -12,6 +12,10 @@ export default function useUser(getList: FuncList) {
         show: (type: string, row?: AddUserModel)
             => void
     }>()
+    // 重置密码组件的ref
+    const resetRef = ref<{
+        show: (row: AddUserModel) => void;
+    }>();
     //新增
     const addBtn = () => {
         //父组件调用子组件的show方法
@@ -35,14 +39,16 @@ export default function useUser(getList: FuncList) {
         }
     }
     const resetPasBtn = async (row: AddUserModel) => {
-        //父组件调用子组件的show方法
-        addRef.value?.show('修改密码', row) 
+        console.log('重置密码用户信息', row);
+        // 调用 ResetPassword.vue 的 show 方法
+        resetRef.value?.show(row);
     }
     return {
         addBtn,
         editBtn,
         deleteBtn,
         addRef,
-        resetPasBtn
+        resetPasBtn,
+        resetRef
     }
 }

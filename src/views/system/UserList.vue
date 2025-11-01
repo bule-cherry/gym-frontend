@@ -59,6 +59,7 @@
         </el-pagination>
         <!-- 新增、编辑弹框 -->
         <add-user ref="addRef" @refresh="refresh"></add-user>
+        <reset-password ref="resetRef" @refresh="refresh"></reset-password>
     </el-main>
 </template>
 
@@ -67,10 +68,11 @@ import AddUser from "./AddUser.vue";
 import { Plus, Edit, Delete, Search, Close } from "@element-plus/icons-vue";
 import useTable from "@/composables/user/useTable";
 import useUser from "@/composables/user/useUser";
+import ResetPassword from "./ResetPassword.vue";
 //表格
 const { listParam, getList, searchBtn, resetBtn, tableList, sizeChange, currentChange, tableHeight, refresh } = useTable();
 //新增、编辑
-const { addBtn, editBtn, deleteBtn, addRef, resetPasBtn } = useUser(getList);
+const { addBtn, editBtn, deleteBtn, addRef,resetRef , resetPasBtn } = useUser(getList);
 </script>
 
 <style scoped></style>
