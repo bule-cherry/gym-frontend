@@ -1,5 +1,5 @@
 import http from "@/http"
-import { type MemberParam, type MemberType } from "./MemberModel"
+import { type MemberParam, type MemberType, type ApplyCard, type Recharge } from "./MemberModel"
 //新增
 export const addApi = (parm: MemberType) => {
     return http.post("/api/member", parm)
@@ -20,4 +20,15 @@ export const deleteApi = (memberId: string) => {
 export const getRoleByMemberIdApi = (memberId: string) => {
     return http.get("/api/member/getRoleByMemberId",
         { memberId: memberId })
+}
+//办卡
+export const applySaveApi = (parm: ApplyCard) => {
+    return http.post("/api/member/joinApply", parm)
+}
+//充值
+export const rechargeApi = (parm: Recharge) => {
+    return http.post("/api/member/recharge", parm)
+}
+export const getCardListApi = () => {
+    return http.get("/api/member/getCardList")
 }

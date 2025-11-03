@@ -26,3 +26,14 @@ export type MemberType = {
     status: string,
     roleId: string
 }
+//办卡数据类型
+export type ApplyCard = {
+    cardId: string,
+    memberId: string
+}
+//充值数据类型
+export type Recharge = {
+    memberId: string,
+    money: number,
+    userId: string
+}
