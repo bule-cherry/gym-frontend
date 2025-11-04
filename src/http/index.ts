@@ -5,7 +5,7 @@ import axios, {
 import { ElMessage } from 'element-plus';
 //axios请求配置
 const config = {
-    baseURL: 'http://localhost:8089', //真实请求接口的地址,真实上线是一个域名
+    baseURL: process.env.BASE_API , // 'http://localhost:8089', //真实请求接口的地址,真实上线是一个域名
     timeout: 10000
 }
 //定义返回值类型
@@ -135,6 +135,14 @@ class Http {
     /* DELETE 方法 */
     delete<T = Result>(url: string): Promise<T> {
         return this.instance.delete(url)
+    }
+     //图片上传
+    upload<T = Result>(url: string, params?: object): Promise<T> {
+        return this.instance.post(url, params, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
     }
 }
 export default new Http(config)

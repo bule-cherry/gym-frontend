@@ -1,11 +1,7 @@
 <template>
     <menu-logo :isCollapsed="isCollapse"></menu-logo>
-    <el-menu :default-active="activeIndex" 
-    class="el-menu-vertical-demo" 
-    :collapse="isCollapse" 
-    unique-opened
-    background-color="#304156"
-    router >
+    <el-menu :default-active="activeIndex" class="el-menu-vertical-demo" :collapse="isCollapse" unique-opened
+        background-color="#304156" router>
         <menu-item :menuList="menuList"></menu-item>
     </el-menu>
 </template>
@@ -18,13 +14,13 @@ import { useRoute } from 'vue-router';
 import { collapseStore } from "@/store/collapse/index";
 //获取激活的菜单
 const route = useRoute();
-const activeIndex = computed(()=>{
- const {path} = route;
- return path;
+const activeIndex = computed(() => {
+    const { path } = route;
+    return path;
 })
 const colstore = collapseStore();
 const isCollapse = computed(() => {
- return colstore.getCollapse;
+    return colstore.getCollapse;
 });
 // 菜单数据结构
 const menuList = [
@@ -110,6 +106,38 @@ const menuList = [
                     roles: ["sys:myFee"],
                 },
             },
+        ],
+    },
+    {
+        path: "/courseRoot",
+        component: "Layout",
+        name: "courseRoot",
+        meta: {
+            title: "课程管理",
+            icon: "ScaleToOriginal",
+            roles: ["sys:courseRoot"],
+        },
+        children: [
+            {
+                path: "/courseList",
+                component: "/course/CourseList",
+                name: "courseList",
+                meta: {
+                    title: "课程列表",
+                    icon: "UserFilled",
+                    roles: ["sys:courseList"],
+                },
+            },
+            {
+                path: "/mycourse",
+                component: "/mycourse/mycourse",
+                name: "mycourse",
+                meta: {
+                    title: "我的课程",
+                    icon: "Wallet",
+                    roles: ["sys:mycourse"],
+                },
+            }
         ],
     },
 ]
