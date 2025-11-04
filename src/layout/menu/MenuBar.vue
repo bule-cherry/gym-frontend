@@ -140,6 +140,28 @@ const menuList = [
             }
         ],
     },
+    {
+     path: "/materialRoot",
+     component: "Layout",
+     name: "materialRoot",
+     meta: {
+       title: "器材管理",
+       icon: "KnifeFork",
+       roles: ["sys:materialRoot"],
+     },
+     children: [
+       {
+         path: "/materialList",
+         component: "/material/MaterialList",
+         name: "materialList",
+        meta: {
+           title: "器材列表",
+           icon: "UserFilled",
+          roles: ["sys:materialList"],
+         },
+       }
+     ],
+  },
 ]
 </script>
 

@@ -142,6 +142,29 @@ const routes: Array<RouteRecordRaw> = [
             // }
         ]
     },
+    {
+        path: "/materialRoot",
+        component: Layout,
+        name: "materialRoot",
+        meta: {
+            title: "器材管理",
+            icon: "Document",
+            roles: ["sys:materialRoot"],
+        },
+        children: [
+            {
+                path: "/materialList",
+                component: () =>
+                    import('@/views/material/MaterialList.vue'),
+                name: "materialList",
+                meta: {
+                    title: "器材列表",
+                    icon: "UserFilled",
+                    roles: ["sys:materialList"],
+                },
+            }
+        ]
+    },
 ]
 const router = createRouter({
     history: createWebHistory(),
