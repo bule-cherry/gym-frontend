@@ -184,6 +184,28 @@ const menuList = [
        },
      ],
    },
+   {
+     path: "/lostRoot",
+     component: "Layout",
+     name: "lostRoot",
+     meta: {
+       title: "失物招领",
+       icon: "Document",
+       roles: ["sys:lostRoot"],
+     },
+     children: [
+       {
+         path: "/lostList",
+         component: "/goods/LostList",
+         name: "lostList",
+        meta: {
+           title: "失物列表",
+           icon: "UserFilled",
+           roles: ["sys:lostList"],
+         },
+       }
+     ],
+   },
 ]
 </script>
 
