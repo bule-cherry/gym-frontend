@@ -162,6 +162,28 @@ const menuList = [
        }
      ],
   },
+  {
+     path: "/goodsRoot",
+     component: "Layout",
+     name: "goodsRoot",
+     meta: {
+       title: "商品管理",
+       icon: "Calendar",
+       roles: ["sys:goodsRoot"],
+     },
+     children: [
+       {
+         path: "/goodsList",
+         component: "/goods/GoodsList",
+         name: "goodsList",
+         meta: {
+           title: "商品列表",
+           icon: "UserFilled",
+           roles: ["sys:goodsList"],
+         },
+       },
+     ],
+   },
 ]
 </script>
 
