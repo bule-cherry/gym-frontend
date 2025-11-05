@@ -6,7 +6,8 @@ import { ElMessage } from 'element-plus';
 //axios请求配置
 const config = {
     baseURL: process.env.BASE_API , // 'http://localhost:8089', //真实请求接口的地址,真实上线是一个域名
-    timeout: 10000
+    timeout: 10000,
+    withCredentials: true //解决session不一致的问题
 }
 //定义返回值类型
 export interface Result<T = any> {

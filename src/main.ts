@@ -7,8 +7,10 @@ import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 //引入Pinia构造函数
 import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 // 实例化 Pinia
 const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate) // 启用持久化
 //国际化
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import objCoppy from './utils/objCoppy'
