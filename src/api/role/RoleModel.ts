@@ -17,3 +17,8 @@ export type AssignParam = {
     roleId: string,
     userId: string
 }
+//保存权限参数
+export type SaveAssignParam = {
+    roleId: string,
+    list: Array<string>
+}
