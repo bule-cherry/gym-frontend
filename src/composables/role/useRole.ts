@@ -31,10 +31,21 @@ export default function useRole(getList: FuncList) {
             }
         }
     }
+    //分配权限弹框ref属性
+    const assignRoleRef = ref<{
+        show: (roleId: string, name:
+            string) => void
+    }>()
+    //分配权限按钮
+    const assignBtn = (row: AddRoleModel) => {
+        assignRoleRef.value?.show(row.roleId, row.roleName)
+    }
     return {
         addBtn,
         editBtn,
         deleteBtn,
-        addRef
+        assignBtn,
+        addRef,
+        assignRoleRef
     }
 }

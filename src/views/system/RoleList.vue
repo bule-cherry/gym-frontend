@@ -15,33 +15,36 @@
         <el-table :height="tableHeight" :data="tableList.list" border stripe>
             <el-table-column prop="roleName" label="角色名称"></el-table-column>
             <el-table-column prop="remark" label="角色描述"></el-table-column>
-            <el-table-column label="操作" width="220" align="center">
+            <el-table-column label="操作" width="320" align="center">
                 <template #default="scope">
                     <el-button type="primary" :icon="Edit" size="default" @click="editBtn(scope.row)">编辑</el-button>
+                    <el-button type="success" :icon="Edit" size="default" @click="assignBtn(scope.row)">分配权限</el-button>
                     <el-button type="danger" :icon="Delete" size="default" @click="deleteBtn(scope.row)">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
         <!-- 分页 -->
         <el-pagination @size-change="sizeChange" @current-change="currentChange"
-            :current-page.sync="listParam.currentPage" :page-sizes="[1, 10, 20, 40, 80, 100]"
+            :current-page.sync="listParam.currentPage" :page-sizes="[10, 20, 40, 80, 100]"
             :page-size="listParam.pageSize" layout="total, sizes, prev, pager, next, jumper" :total="listParam.total"
             background>
         </el-pagination>
+
         <!-- 新增、编辑弹框 -->
         <role-add ref="addRef" @refresh="refresh"></role-add>
+        <!-- 分配权限 -->
+        <AssignRole ref="assignRoleRef"></AssignRole>
     </el-main>
 </template>
 <script setup lang="ts">
 import RoleAdd from "./RoleAdd.vue";
+import AssignRole from "./AssignRole.vue";
 import { Plus, Edit, Delete, Search, Close } from "@element-plus/icons-vue";
 import useTable from "@/composables/role/useTable";
 import useRole from "@/composables/role/useRole";
 //表格相关的业务
-const { listParam, getList, searchBtn,
-    resetBtn, tableList, sizeChange
-    , currentChange, tableHeight, refresh } = useTable();
+const { listParam, getList, searchBtn, resetBtn, tableList, sizeChange, currentChange, tableHeight, refresh } = useTable();
 //增删改查业务
-const { addBtn, editBtn, deleteBtn, addRef } = useRole(getList);
+const { addBtn, editBtn, deleteBtn, addRef, assignBtn, assignRoleRef } = useRole(getList);
 </script>
 <style scoped></style>
