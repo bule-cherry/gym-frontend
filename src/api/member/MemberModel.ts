@@ -37,3 +37,11 @@ export type Recharge = {
     money: number,
     userId: string
 }
+// 我的充值请求参数
+export type MemberRecharge = {
+    currentPage: number,
+    pageSize: number,
+    total: number,
+    memberId: string,
+    userType: string
+}

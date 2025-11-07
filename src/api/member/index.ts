@@ -1,5 +1,5 @@
 import http from "@/http"
-import { type MemberParam, type MemberType, type ApplyCard, type Recharge } from "./MemberModel"
+import { type MemberParam, type MemberType, type ApplyCard, type Recharge, type MemberRecharge } from "./MemberModel"
 //新增
 export const addApi = (parm: MemberType) => {
     return http.post("/api/member", parm)
@@ -31,4 +31,8 @@ export const rechargeApi = (parm: Recharge) => {
 }
 export const getCardListApi = () => {
     return http.get("/api/member/getCardList")
+}
+//我的充值
+export const getMyRechargeApi = (parm: MemberRecharge) => {
+    return http.get("/api/member/getMyRecharge", parm)
 }
