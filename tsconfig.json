@@ -24,8 +24,10 @@
         "@/*": [   // 别名路径设置
             "src/*"
         ]
-}
+      },
+      "types": ["vite/client"] // 👈 add this,
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+  
   
 }

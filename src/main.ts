@@ -16,6 +16,7 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import objCoppy from './utils/objCoppy'
 //信息确认框
 import myconfirm from './utils/myconfirm'
+import './permission'
 const app = createApp(App);
 app.use(router).use(ElementPlus, {
     locale: zhCn,

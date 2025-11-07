@@ -1,8 +1,7 @@
 <template>
     <div class="logincontainer">
         <el-form class="loginForm" :model="loginModel" ref="loginForm" :rules="rules" size="default">
-            <el-form-item style="display: flex; justify-content: 
-center">
+            <el-form-item style="display: flex; justify-content: center">
                 <div class="loginTitle">系统登录</div>
             </el-form-item>
             <el-form-item>
@@ -64,6 +63,7 @@ const onSubmit = async () => {
     if (res && res.code == 200) {
         store.setToken(res.data.token)
         store.setUserId(res.data.userId)
+        store.setUserType(res.data.userType)
         //跳转到首页
         router.push({ path: "/" });
     }
