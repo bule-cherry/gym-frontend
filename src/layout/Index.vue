@@ -23,10 +23,11 @@ import Tabs from '@/layout/tabs/Tabs.vue';
 </script>
 <style lang="scss">
 .header {
- display: flex;
- align-items: center;
- background-color: #009688;
- }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #009688;
+}
 .full-screen {
     height: 100vh;
     /* 视口高度 */
