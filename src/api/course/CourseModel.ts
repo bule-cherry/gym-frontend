@@ -3,7 +3,7 @@ export type CourseListParam = {
     currentPage: number,
     pageSize: number,
     total: number,
-    teacherName:string
+    teacherName: string
 }
 export type CourseType = {
     type: string,
@@ -15,4 +15,9 @@ export type CourseType = {
     courseDetails: string,
     coursePrice: number,
     teacherId: string,
+}
+//选课参数类型
+export type SelectCourse = {
+    courseId: string,
+    memberId: string
 }
