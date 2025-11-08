@@ -1,5 +1,5 @@
 import http from "@/http";
-import { type CourseType, type CourseListParam, type SelectCourse } from "./CourseModel";
+import { type CourseType, type CourseListParam, type SelectCourse, type MyCourseListParam } from "./CourseModel";
 //图片上传
 export const uploadImageApi = (param: object) => {
     return http.upload("/api/upload/uploadImage", param)
@@ -27,4 +27,8 @@ export const deleteApi = (courseId: string) => {
 //选课
 export const joinCourseApi = (parm: SelectCourse) => {
     return http.post("/api/course/joinCourse", parm)
+}
+//我的课程
+export const getMyCourseListApi = (parm: MyCourseListParam) => {
+    return http.get("/api/course/getMyCourseList", parm)
 }

@@ -1,9 +1,11 @@
 import { type MemberParam } from "@/api/member/MemberModel";
 import { nextTick, onMounted, reactive, ref } from "vue";
 import { getListApi } from "@/api/member";
+import { userStore } from "@/store/user"
 export default function useTable() {
     //表格高度
     const tableHeight = ref(0)
+    const store = userStore();
     //表格数据定义
     const tableList = reactive({
         list: []
@@ -15,7 +17,9 @@ export default function useTable() {
         username: '',
         pageSize: 10,
         currentPage: 1,
-        total: 0
+        total: 0,
+        userType: store.userType,
+        memberId: store.userId
     })
     //列表
     const getList = async () => {

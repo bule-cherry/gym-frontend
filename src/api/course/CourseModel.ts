@@ -21,3 +21,11 @@ export type SelectCourse = {
     courseId: string,
     memberId: string
 }
+//我的课程模块
+export type MyCourseListParam = {
+    userType: string,
+    userId: string,
+    currentPage: number,
+    pageSize: number,
+    total: number
+}

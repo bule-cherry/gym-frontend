@@ -46,10 +46,10 @@ export const userStore = defineStore('userStore', {
             })
         }
     },
-    persist: {
+    persist: true/* {
         enabled: true,
         strategies: [
             { storage: localStorage, paths: ['userId', 'token','codeList','name','userType'] },
         ],
-    }
+    } */
 })

@@ -5,7 +5,9 @@ export type MemberParam = {
     username: string,
     currentPage: number,
     pageSize: number,
-    total: number
+    total: number,
+    userType: string,
+    memberId: string
 }
 //会员数据类型
 export type MemberType = {
