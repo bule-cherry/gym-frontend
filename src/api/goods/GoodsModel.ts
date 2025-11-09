@@ -16,4 +16,8 @@ export type GoodsType = {
     specs: string,
     price: number,
     store: number,
+    num?:number 
+}
+export type AddCar = {
+    list: GoodsType[]
 }
