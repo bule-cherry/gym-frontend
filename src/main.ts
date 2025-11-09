@@ -17,7 +17,9 @@ import objCoppy from './utils/objCoppy'
 //信息确认框
 import myconfirm from './utils/myconfirm'
 import './permission'
+import * as echarts from 'echarts'
 const app = createApp(App);
+app.config.globalProperties.$echarts = echarts;
 app.use(router).use(ElementPlus, {
     locale: zhCn,
 }).use(pinia)
