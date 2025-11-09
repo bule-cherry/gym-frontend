@@ -1,4 +1,5 @@
 import http from "@/http";
+import { ResetPasswordParam } from "./HomeModel";
 //总数统计
 export const getTotalApi = () => {
     return http.get("/api/home/getTotal")
@@ -18,4 +19,12 @@ export const getHotCardstApi = () => {
 //热销课程
 export const getHotCourseApi = () => {
     return http.get("/api/home/getHotCourse")
+}
+//重置密码
+export const resetPasswordApi = (parm: ResetPasswordParam) => {
+    return http.post("/api/home/resetPassword", parm)
+}
+//修改密码
+export const updatePasswordApi = (parm: ResetPasswordParam) => {
+    return http.post("/api/home/updatePassword", parm)
 }
