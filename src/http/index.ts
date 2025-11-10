@@ -3,6 +3,7 @@ import axios, {
     type InternalAxiosRequestConfig
 } from "axios";
 import { ElMessage } from 'element-plus';
+import { userStore } from "@/store/user";
 //axios请求配置
 const config = {
     baseURL: process.env.BASE_API , // 'http://localhost:8089', //真实请求接口的地址,真实上线是一个域名
@@ -30,8 +31,9 @@ class Http {
         this.instance.interceptors.request.use((config: InternalAxiosRequestConfig) => {
             //在请求头部携带token
             // let token = sessionStorage.getItem('token');
-            let token =
-                'eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2NzE5ODMwMzksInN1YiI6ImFkbWluIiwiaWF0IjoxNjUzOTgzMDM5NTQzfQ.Ai_Lcq0tE7GurWqjng86gGn_WWVWN9jOx6yHeueP9nqxDDWft_h5SeopsQIiUewYbZvCiKSJKUP_E8bMRdWxw';
+            // let token = 'eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2NzE5ODMwMzksInN1YiI6ImFkbWluIiwiaWF0IjoxNjUzOTgzMDM5NTQzfQ.Ai_Lcq0tE7GurWqjng86gGn_WWVWN9jOx6yHeueP9nqxDDWft_h5SeopsQIiUewYbZvCiKSJKUP_E8bMRdWxw';
+            const store = userStore()
+            let token = store.token
             if (token) {
                 config.headers!['token'] = token
                     //把token放到headers里面

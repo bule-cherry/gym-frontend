@@ -25,7 +25,7 @@
             "src/*"
         ]
       },
-      "types": ["vite/client"] // 👈 add this,
+      "types": ["vite/client","node"] // 👈 add this,
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
   
