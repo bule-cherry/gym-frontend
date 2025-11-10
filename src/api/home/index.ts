@@ -28,3 +28,7 @@ export const resetPasswordApi = (parm: ResetPasswordParam) => {
 export const updatePasswordApi = (parm: ResetPasswordParam) => {
     return http.post("/api/home/updatePassword", parm)
 }
+//退出登录
+export const loginOutApi = () => {
+    return http.post("/api/home/loginOut")
+}
